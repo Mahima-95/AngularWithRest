@@ -11,7 +11,6 @@ import com.spring.hibernate.college.pojo.College;
 import com.spring.hibernate.college.service.CollegeService;
 
 @RestController
-@org.springframework.stereotype.Controller
 public class Controller {
 
 	@Autowired
