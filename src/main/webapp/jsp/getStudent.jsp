@@ -4,7 +4,10 @@
 <link rel="stylesheet" type="text/css" href="/css//getStudent.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script type="text/javascript" src="/js//getStudent.js"></script>
+
+<script
+	src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+<script type="text/javascript" src="/js/getStudent.js"></script>
 <title>Angular JS Includes</title>
 </head>
 <body>
@@ -32,15 +35,16 @@
 				</td>
 			</tr>
 		</table>
-		<button type="button" ng-click="addStudent()">Add Student</button>
-		</div ng-app="newApp">
-		<div>
+		<button type="button" ng-click="addStudent(student)">Add
+			Student</button>
+	</div>
+	<!-- <div>
 		<button type="button" ng-dialog="firstDialogId"
 			ng-dialog-controller="InsideCtrl"
 			ng-dialog-data="{&quot;foo&quot;: &quot;bar&quot;}"
 			ng-dialog-class="ngdialog-theme-default" ng-dialog-scope="this"
 			ng-dialog-show-close="false" class="ng-isolate-scope">Open
 			via directive</button>
-	</div>
+	</div> -->
 </body>
 </html>
