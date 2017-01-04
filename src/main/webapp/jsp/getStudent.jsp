@@ -22,7 +22,7 @@
 			</tr>
 			<tr ng-repeat="student in students">
 
-				<td contenteditable="true">{{ student.studentId }}</td>
+				<td>{{ student.studentId }}</td>
 				<td contenteditable="true">{{ student.studentName }}</td>
 				<td contenteditable="true">{{ student.studentField }}</td>
 				<td contenteditable="true">{{ student.studentCourse }}</td>
@@ -33,6 +33,14 @@
 			</tr>
 		</table>
 		<button type="button" ng-click="addStudent()">Add Student</button>
+		</div ng-app="newApp">
+		<div>
+		<button type="button" ng-dialog="firstDialogId"
+			ng-dialog-controller="InsideCtrl"
+			ng-dialog-data="{&quot;foo&quot;: &quot;bar&quot;}"
+			ng-dialog-class="ngdialog-theme-default" ng-dialog-scope="this"
+			ng-dialog-show-close="false" class="ng-isolate-scope">Open
+			via directive</button>
 	</div>
 </body>
 </html>
