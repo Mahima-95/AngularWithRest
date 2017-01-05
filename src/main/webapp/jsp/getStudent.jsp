@@ -1,4 +1,5 @@
 <%@ page import="java.util.List"%>
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/css//getStudent.css">
@@ -10,9 +11,9 @@
 <script type="text/javascript" src="/js/getStudent.js"></script>
 <title>Angular JS Includes</title>
 </head>
-<body>
+<body ng-app="myApp">
 	<h2>getStudentDetails</h2>
-	<div ng-app="myApp" ng-controller="studentCtrl">
+	<div ng-controller="studentCtrl">
 
 		<table>
 			<tr>
@@ -31,12 +32,21 @@
 				<td contenteditable="true">{{ student.studentCourse }}</td>
 				<td contenteditable="true">{{ student.studentAddress }}</td>
 				<td>
-					<button type="button" ng-click="editStudent(student)">Update</button>
+					<!-- <button type="button" ng-click="editStudent(student)">Update</button> -->
 				</td>
 			</tr>
 		</table>
-		<button type="button" ng-click="addStudent(student)">Add
-			Student</button>
+		<!-- <button type="button" ng-click="addStudent(student)">Add
+			Student</button> -->
+	</div>
+	<div ng-controller="formCtrl">
+
+		<label>Name</label><input type="text" ng-model="name"><br>
+		<label>Student Field</label><input type="text" ng-model="field"><br>
+		<label>Student Course</label><input type="text" ng-model="course"><br>
+		<label>Student Address</label><input type="text" ng-model="address"><br>
+		<button name="submit" value="Add" ng-click="studentAdd()">ADD</button>
+		{{nameValue}}
 	</div>
 	<!-- <div>
 		<button type="button" ng-dialog="firstDialogId"
