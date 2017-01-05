@@ -25,13 +25,18 @@ var app = angular.module('myApp', []);
 });
 
 app.controller('formCtrl',function($scope){
+	$scope.studentAdd = function(){
+		$scope.name1 = name;
+		console.log(name1);
+		console.log($scope.name);
+		$scope.nameValue = 'dfdfdfdf';
+	}
 	
-	$scope.nameValue = name;
 	//	$scope.field = fieldValue;
 	//	$scope.course = courseValue;
 	//	$scope.address = addressValue;
 	//console.log(nameValue + fieldValue + courseValue + addressValue);
-})
+});
 
 
 

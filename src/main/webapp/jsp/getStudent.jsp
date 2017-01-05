@@ -41,12 +41,14 @@
 	</div>
 	<div ng-controller="formCtrl">
 
-		<label>Name</label><input type="text" ng-model="name"><br>
-		<label>Student Field</label><input type="text" ng-model="field"><br>
-		<label>Student Course</label><input type="text" ng-model="course"><br>
-		<label>Student Address</label><input type="text" ng-model="address"><br>
-		<button name="submit" value="Add" ng-click="studentAdd()">ADD</button>
-		{{nameValue}}
+		<form>
+			<label>Name</label><input type="text" ng-model="name" name="name"><br>
+			<label>Student Field</label><input type="text" ng-model="field"><br>
+			<label>Student Course</label><input type="text" ng-model="course"><br>
+			<label>Student Address</label><input type="text" ng-model="address"><br>
+			<input type="submit" name="submit" ng-click="studentAdd()">ADD</button>
+			{{nameValue}}
+		</form>
 	</div>
 	<!-- <div>
 		<button type="button" ng-dialog="firstDialogId"
