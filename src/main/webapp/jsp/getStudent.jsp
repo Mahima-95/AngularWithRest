@@ -46,8 +46,8 @@
 			<label>Student Field</label><input type="text" ng-model="field"><br>
 			<label>Student Course</label><input type="text" ng-model="course"><br>
 			<label>Student Address</label><input type="text" ng-model="address"><br>
-			<input type="submit" name="submit" ng-click="studentAdd()">ADD</button>
-			{{nameValue}}
+			<input type="submit" name="submit" ng-click="studentAdd()"></button>
+			{{studentAdd()}}
 		</form>
 	</div>
 	<!-- <div>
