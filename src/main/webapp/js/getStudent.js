@@ -1,55 +1,66 @@
 var app = angular.module('myApp', []);
-	app.controller('studentCtrl', function($scope, $http) {
-	// alert("fkhgvjhv");
+app.controller('studentCtrl', function($scope, $http) {
 	var url = "http://localhost:8080/getStudentDetails";
 
 	$http.get(url).success(function(response) {
-		// alert(response);
 		$scope.students = response;
 	});
-	/*$scope.addStudent = function() {
+
+	$scope.studentAdd = function() {
+		var id = $scope.id;
+		var name = $scope.name;
+		var field = $scope.field;
+		var course = $scope.course;
+		var address = $scope.address;
+
 		var studentVar = {
-			
-			 * studentId : 0, studentName : '', studentField : '', studentCourse :
-			 * '', studentAddress : '',
-			 
+
+			studentId : 0,
+			studentName : name,
+			studentField : field,
+			studentCourse : course,
+			studentAddress : address,
 		};
-		$scope.students.push(studentVar);
-	};*/
-	/*$scope.editStudent = function(student){
-		var stud = angular.copy(student);
-		console.log(stud);
-	}*/
-	
-	
-});
+		var res = $http.post('http://localhost:8080/addStudentDetails',
+				studentVar);
+		res.success(function(data, status, headers, config) {
+			// $scope.message = data;
+			// $scope.students.push(studentVar);
+			$http.get(url).success(function(response) {
+				$scope.students = response;
+			});
+			$scope.IsVisible = false;
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
 
-app.controller('formCtrl',function($scope){
-	$scope.name='';
-	$scope.field='';
-	$scope.course='';
-	$scope.address='';
-	$scope.studentAdd = function(){
-		
-	/*	console.log(name);
-		console.log(field);
-		console.log(course);
-		console.log(address);
-		console.log($scope.name);*/
-	
-		return $scope.name + " " +$scope.field+ " " +$scope.course+ " " +$scope.address
 	};
-	
-	//	$scope.field = fieldValue;
-	//	$scope.course = courseValue;
-	//	$scope.address = addressValue;
-	//console.log(nameValue + fieldValue + courseValue + addressValue);
+
+	$scope.IsVisible = false;
+	$scope.ShowHide = function() {
+		$scope.IsVisible = $scope.IsVisible ? false : true;
+	}
+
+	$scope.editStudent = function(stud) {
+
+		$scope.IsVisible = true;
+		var id = stud.studentId;
+		var name = stud.studentName;
+		var field = stud.studentField;
+		var course = stud.studentCourse;
+		var address = stud.studentAddress;
+		
+//		var c = document.getElementsByName('update').elements ;
+		
+		console.log(c);
+		
+		$scope.id = id;
+		$scope.name = name;
+		$scope.field = field;
+		$scope.course = course;
+		$scope.address = address;
+	};
 });
-
-
-
-
-
-
-
-

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/css//getStudent.css">
+<link rel="stylesheet" type="text/css" href="/css/getStudent.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
@@ -32,23 +32,41 @@
 				<td contenteditable="true">{{ student.studentCourse }}</td>
 				<td contenteditable="true">{{ student.studentAddress }}</td>
 				<td>
-					<!-- <button type="button" ng-click="editStudent(student)">Update</button> -->
+					<button type="button" name="update" ng-model="update" value="update" ng-click="editStudent(student)">Update</button>
 				</td>
 			</tr>
 		</table>
-		<!-- <button type="button" ng-click="addStudent(student)">Add
-			Student</button> -->
-	</div>
-	<div ng-controller="formCtrl">
-
-		<form>
-			<label>Name</label><input type="text" ng-model="name" name="name"><br>
-			<label>Student Field</label><input type="text" ng-model="field"><br>
-			<label>Student Course</label><input type="text" ng-model="course"><br>
-			<label>Student Address</label><input type="text" ng-model="address"><br>
-			<input type="submit" name="submit" ng-click="studentAdd()"></button>
-			{{studentAdd()}}
-		</form>
+		<button type="button" ng-click="ShowHide()">Add Student</button>
+		<!-- </div>
+	<div ng-controller="formCtrl"> -->
+		<div class="formCtrl" ng-show="IsVisible">
+			<table>
+				<tr>
+					<td><label>Id</label></td>
+					<td><input type="text" ng-model="id" name="id" contenteditable="false"></td>
+				</tr>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input type="text" ng-model="name" name="name"></td>
+				</tr>
+				<tr>
+					<td><label>Student Field</label></td>
+					<td><input type="text" ng-model="field"></td>
+				</tr>
+				<tr>
+					<td><label>Student Course</label></td>
+					<td><input type="text" ng-model="course"></td>
+				</tr>
+				<tr>
+					<td><label>Student Address</label></td>
+					<td><input type="text" ng-model="address"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" ng-click="studentAdd()"></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<!-- <div>
 		<button type="button" ng-dialog="firstDialogId"

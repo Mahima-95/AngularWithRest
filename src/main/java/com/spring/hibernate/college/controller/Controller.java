@@ -3,6 +3,8 @@ package com.spring.hibernate.college.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,13 +23,13 @@ public class Controller {
 		return new ModelAndView("getStudent");
 	}
 
-	@RequestMapping("/addStudentDetails")
-	public String addStudentDeatils() {
-		College college = new College();
-		college.setStudentName("Aviral");
+	@RequestMapping(value = "/addStudentDetails", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String addStudentDeatils(@RequestBody College college) {
+		System.out.println(college);
+		/*college.setStudentName("Aviral");
 		college.setStudentCourse("B.Tech");
 		college.setStudentField("CS");
-		college.setStudentAddress("Shastri Nagar");
+		college.setStudentAddress("Shastri Nagar");*/
 		return collegeService.addStudentDeatils(college);
 	}
 
@@ -46,22 +48,22 @@ public class Controller {
 		college.getStudentId();
 		return collegeService.getStudentDeatils(college);
 	}
-	
+
 	@RequestMapping("/deleteStudentDetails")
 	public String deleteStudentDeatils() {
 		return collegeService.deleteStudentDeatils(5);
 	}
-	
-/*	@RequestMapping(value = "/getMVCStudentDetails")
-	public ModelAndView getDoctor(@RequestParam int id) {
 
-		College college = new College();
-		college.setStudentId(id);
-		List<College> response = collegeService.getStudentDeatils(college);
-		System.out.println(response);
-		return new ModelAndView("angular", "collegeList", response);
-	}*/
-	
+	/*
+	 * @RequestMapping(value = "/getMVCStudentDetails") public ModelAndView
+	 * getDoctor(@RequestParam int id) {
+	 * 
+	 * College college = new College(); college.setStudentId(id); List<College>
+	 * response = collegeService.getStudentDeatils(college);
+	 * System.out.println(response); return new ModelAndView("angular",
+	 * "collegeList", response); }
+	 */
+
 	@RequestMapping(value = "/getStudent")
 	public ModelAndView moviePageView() {
 		return new ModelAndView("getStudent");
